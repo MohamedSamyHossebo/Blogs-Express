@@ -7,7 +7,7 @@ const connection = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "root",
-    database: "blogs"
+    database: "blog_app"
 });
 
 connection.connect((err) => {
@@ -18,8 +18,16 @@ connection.connect((err) => {
     }
 });
 
+
+
 app.get("/", (req, res) => {
-    return res.status(200).json({ message: "Hello From Database!" });
+    connection.query("SELECT * FROM users", (err, results) => {
+        if (err) {
+            return res.status(500).json({ message: err.message });
+        } else {
+            return res.status(200).json({ message: "success", results });
+        }
+    });
 });
 
 
