@@ -1,4 +1,4 @@
-import { config } from "../config.js";
+import { config } from "./Config/config.js";
 import express from "express";
 
 import { userRouter, authRouter, blogRouter } from "./Modules/index.js";
