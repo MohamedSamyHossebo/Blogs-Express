@@ -1,5 +1,4 @@
 import { Router } from "express";
-import connection from "../../DB/connection.js";
 import * as userService from "./user.service.js";
 const router = Router();
 
