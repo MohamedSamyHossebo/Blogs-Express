@@ -172,7 +172,7 @@ export const hardDeleteBlog = (blog_Id, data, res) => {
     if (!user_id) {
         return res.status(400).json({ message: "User ID is required in request body" });
     }
-    
+
     const findQuery = `SELECT * FROM blogs WHERE id=? AND deleted_at IS NOT NULL`;
     connection.execute(findQuery, [blogId], (err, blogResults) => {
         if (err) return res.status(500).json({ message: err.message });
